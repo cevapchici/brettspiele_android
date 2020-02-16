@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Brettspiele</string>
+    <string name="title_activity_tic_tac_toe">TicTacToe</string>
+    <string name="title_activity_schiffe_versenken">SchiffeVersenken</string>
+
+    <string name="game_end">Das Spiel wurde beendet.</string>
+    <string name="restart">Neustart</string>
+    <string name="title_activity_muehle">Muehle</string>
+</resources>

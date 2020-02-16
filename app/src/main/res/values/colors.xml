@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#067EDA</color>
+    <color name="colorPrimaryDark">#0950BB</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="gameCardColor">#8A1698DA</color>
+    <color name="ticTacToeBackground">#8B000000</color>
+    <color name="actionBarTitle">#FFFFFF</color>
+    <color name="tictactoeField">#E484A4</color>
+</resources>
