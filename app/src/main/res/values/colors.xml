@@ -8,4 +8,6 @@
     <color name="ticTacToeBackground">#8B000000</color>
     <color name="actionBarTitle">#FFFFFF</color>
     <color name="tictactoeField">#E484A4</color>
+    <color name="red">#C20E0E</color>
+    <color name="yellow">#FFBD17</color>
 </resources>

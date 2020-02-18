@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import de.munich.iubh.brettspiele.R;
@@ -32,6 +33,7 @@ public class VierGewinnt extends AppCompatActivity {
         boardView = findViewById(R.id.game_board);
         currentPlayerDisplay = findViewById(R.id.current_player);
         currentPlayerDisplay.setText("Spieler " + player + " ist an der Reihe!");
+        currentPlayerDisplay.setTextColor(player == 1 ? getResources().getColor(R.color.red) : getResources().getColor(R.color.yellow));
 
         FloatingActionButton resetBtn = (FloatingActionButton) findViewById(R.id.fab);
         resetBtn.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +49,8 @@ public class VierGewinnt extends AppCompatActivity {
         buildBoard();
         winner = 0;
         player = 1;
+        currentPlayerDisplay.setText("Spieler " + player + " ist an der Reihe!");
+        currentPlayerDisplay.setTextColor(player == 1 ? getResources().getColor(R.color.red) : getResources().getColor(R.color.yellow));
     }
 
     private void buildBoard() {
@@ -79,6 +83,7 @@ public class VierGewinnt extends AppCompatActivity {
 
                             player = player == 1 ? 2 : 1;
                             currentPlayerDisplay.setText("Spieler " + player + " ist an der Reihe!");
+                            currentPlayerDisplay.setTextColor(player == 1 ? getResources().getColor(R.color.red) : getResources().getColor(R.color.yellow));
                         }
                     }
                 });
@@ -123,8 +128,31 @@ public class VierGewinnt extends AppCompatActivity {
                 .setIcon(android.R.drawable.btn_star_big_on)
                 .setCancelable(false)
                 .show();
+        } else if (isDraw()) {
+            new AlertDialog.Builder(this)
+                .setTitle("Es steht unentschieden!")
+                .setMessage("Starte jetzt ein neues Spiel!")
+                .setPositiveButton("Neustart", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        restartGame();
+                    }
+                })
+                .setIcon(android.R.drawable.btn_star_big_on)
+                .setCancelable(false)
+                .show();
         }
         return false;
+    }
+
+    private boolean isDraw() {
+        ArrayList<Boolean> isFilled = new ArrayList<>();
+        for(int r = 0; r<ROWS; r++) {
+            for(int c = 0; c<COLS; c++) {
+                Coordinates coordinates = (Coordinates) cells[r][c].getTag();
+                isFilled.add(coordinates.player != 0);
+            }
+        }
+        return !isFilled.contains(false);
     }
 
     private void diagonalWin() {
@@ -155,15 +183,12 @@ public class VierGewinnt extends AppCompatActivity {
 
             int currentEnemy = p == 1 ? 2 : 1;
 
-            boolean containsNoWinner = !columnColors_1.contains(0) || !columnColors_2.contains(0) || !columnColors_3.contains(0) || !columnColors_4.contains(0);
-
-            if (containsNoWinner) {
-                if (!columnColors_1.contains(currentEnemy) || !columnColors_2.contains(currentEnemy) ||
-                    !columnColors_3.contains(currentEnemy) || !columnColors_4.contains(currentEnemy)) {
-                    winner = p;
-                    break;
-                }
+            if ((!columnColors_1.contains(currentEnemy) && !columnColors_1.contains(0)) || (!columnColors_2.contains(currentEnemy) && !columnColors_2.contains(0)) ||
+                    (!columnColors_3.contains(currentEnemy) && !columnColors_3.contains(0)) || (!columnColors_4.contains(currentEnemy) && !columnColors_4.contains(0))) {
+                winner = p;
+                break;
             }
+
         }
     }
 
