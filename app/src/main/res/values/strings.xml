@@ -6,4 +6,6 @@
     <string name="game_end">Das Spiel wurde beendet.</string>
     <string name="restart">Neustart</string>
     <string name="title_activity_muehle">Muehle</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="schiffe_versenken_befindet_sich_noch_in_der_entwicklung">Schiffe versenken befindet sich noch in der Entwicklung...</string>
 </resources>

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#686868"
     tools:context=".games.VierGewinnt">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/current_player"
@@ -20,10 +21,9 @@
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimaryDark"
-            android:textFontWeight="bold"
             android:textSize="25sp"
-            tools:text="Spieler 2 ist dran!">
-        </TextView>
+            android:textStyle="bold"
+            tools:text="Spieler 2 ist dran!"></TextView>
 
         <include layout="@layout/content_vier_gewinnt" />
 
@@ -35,6 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_media_rew"/>
+        android:backgroundTint="#2196F3"
+        app:backgroundTint="#2196F3"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
 
 </android.support.design.widget.CoordinatorLayout>

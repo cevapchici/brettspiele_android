@@ -1,8 +1,11 @@
 package de.munich.iubh.brettspiele.games.TicTacToe;
 
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -67,7 +70,7 @@ public class TicTacToe extends AppCompatActivity {
         }
     }
 
-    /*private static void openWinDialog(int winner, Context context) {
+    private static void openWinDialog(int winner, Context context) {
         final AlertDialog.Builder winDialog = new AlertDialog.Builder(context);
         winDialog.setTitle(R.string.game_end);
         winDialog.setMessage("Spieler " + winner + " hat das Spiel gewonnen!");
@@ -101,7 +104,7 @@ public class TicTacToe extends AppCompatActivity {
             }
         });
         noWinnerDialog.show();
-    }*/
+    }
 
     public static boolean hasEmptyFields() {
         ArrayList<Boolean> empty = new ArrayList();
